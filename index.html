@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="page_title">Da Silva Consulting &amp; Services — Reclutamiento y Staffing en Florida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #022648;
+    --navy-deep: #011a33;
+    --orange: #FF842C;
+    --orange-deep: #e06f1c;
+    --teal: #33AAB9;
+    --cream: #F5F4EC;
+    --gray: #E6E6E6;
+    --ink: #1a202c;
+    --muted: #5b6472;
+    --line: #e2e8f0;
+    --card: #ffffff;
+    --shadow-sm: 0 1px 2px rgba(2,38,72,0.06), 0 1px 3px rgba(2,38,72,0.08);
+    --shadow-md: 0 8px 20px -6px rgba(2,38,72,0.16);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: var(--ink);
+    background: #fff;
+  }
+  h1, h2, h3 { font-weight: 800; color: var(--navy); margin: 0; }
+  p { line-height: 1.6; color: var(--muted); margin: 0; }
+  a { text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Header ---------- */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: #fff; border-bottom: 1px solid var(--line);
+  }
+  .navbar {
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1180px; margin: 0 auto; padding: 14px 24px; gap: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand img { height: 40px; }
+  nav.menu { display: flex; align-items: center; gap: 28px; flex: 1; justify-content: center; }
+  nav.menu a {
+    color: var(--navy); font-weight: 700; font-size: 15px; letter-spacing: 0.01em;
+    padding: 6px 0; border-bottom: 2px solid transparent; transition: border-color .2s, color .2s;
+  }
+  nav.menu a:hover { border-color: var(--orange); }
+  .navactions { display: flex; align-items: center; gap: 12px; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 11px 22px; border-radius: 999px; font-weight: 700; font-size: 14px;
+    cursor: pointer; border: 2px solid transparent; transition: transform .15s, box-shadow .15s, background .2s;
+    white-space: nowrap;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--orange); color: #fff; box-shadow: var(--shadow-sm); }
+  .btn-primary:hover { background: var(--orange-deep); box-shadow: var(--shadow-md); }
+  .btn-outline { background: transparent; color: var(--navy); border-color: var(--navy); }
+  .btn-outline:hover { background: var(--navy); color: #fff; }
+  .btn-lg { padding: 15px 30px; font-size: 16px; }
+
+  /* ---------- Language toggle ---------- */
+  .lang-toggle {
+    position: relative; display: inline-flex; align-items: center;
+    background: var(--gray); border: 1px solid var(--line); border-radius: 999px;
+    padding: 3px; user-select: none; flex-shrink: 0;
+  }
+  .lang-toggle .slider {
+    position: absolute; top: 3px; bottom: 3px; left: 3px; width: calc(50% - 3px);
+    background: var(--navy); border-radius: 999px; box-shadow: 0 1px 3px rgba(2,38,72,0.25);
+    transition: transform .25s cubic-bezier(.4,0,.2,1); z-index: 0;
+  }
+  .lang-toggle.en .slider { transform: translateX(100%); }
+  .lang-btn {
+    position: relative; z-index: 1; background: transparent; border: 0; padding: 6px 12px;
+    font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: .05em;
+    color: var(--muted); cursor: pointer; border-radius: 999px; transition: color .2s;
+  }
+  .lang-toggle.es .lang-btn[data-lang="es"], .lang-toggle.en .lang-btn[data-lang="en"] { color: #fff; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+    padding: 84px 0 96px;
+  }
+  .hero::after {
+    content: ""; position: absolute; right: -60px; top: -60px; width: 340px; height: 340px;
+    background:
+      linear-gradient(135deg, var(--orange) 0 50%, transparent 50%),
+      linear-gradient(315deg, var(--teal) 0 50%, transparent 50%);
+    background-size: 50% 50%; background-repeat: no-repeat;
+    background-position: top left, bottom right;
+    opacity: .85; transform: rotate(8deg);
+  }
+  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  .hero h1 { color: #fff; font-size: 42px; line-height: 1.15; margin-bottom: 18px; }
+  .hero h1 span { color: var(--orange); }
+  .hero p.lead { color: #cbd8e6; font-size: 17px; max-width: 480px; margin-bottom: 30px; }
+  .hero .ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-card {
+    background: #fff; border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow-md);
+  }
+  .hero-card .stat { display: flex; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .hero-card .stat:last-child { border-bottom: 0; }
+  .hero-card .stat b { color: var(--navy); font-size: 26px; display: block; }
+  .hero-card .stat span { color: var(--muted); font-size: 13px; }
+
+  /* ---------- Section shells ---------- */
+  section { padding: 76px 0; }
+  section.alt { background: var(--cream); }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 44px; }
+  .section-head .eyebrow {
+    display: inline-block; color: var(--orange); font-weight: 800; font-size: 13px;
+    letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .section-head h2 { font-size: 30px; margin-bottom: 12px; }
+
+  .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px 22px; box-shadow: var(--shadow-sm); transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .card .icon {
+    width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center;
+    justify-content: center; font-size: 22px; margin-bottom: 16px; color: #fff;
+  }
+  .card .icon.navy { background: var(--navy); }
+  .card .icon.orange { background: var(--orange); }
+  .card .icon.teal { background: var(--teal); }
+  .card h3 { font-size: 17px; margin-bottom: 8px; }
+  .card p { font-size: 14px; }
+
+  /* ---------- CTA banner ---------- */
+  .cta-banner {
+    background: linear-gradient(120deg, var(--teal), var(--navy));
+    border-radius: var(--radius); padding: 48px; text-align: center; color: #fff;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+  }
+  .cta-banner h2 { color: #fff; font-size: 26px; max-width: 620px; }
+  .cta-banner .ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+  /* ---------- Solicita propuesta (Web-to-Lead) ---------- */
+  #solicita-propuesta {
+    background: var(--navy); scroll-margin-top: 90px;
+  }
+  #solicita-propuesta .box {
+    background: #fff; border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow-md);
+    max-width: 640px; margin: 0 auto;
+  }
+  #solicita-propuesta .section-head h2 { color: #fff; }
+  #solicita-propuesta .section-head p { color: #cbd8e6; }
+  .formrow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .formrow.full { grid-template-columns: 1fr; }
+  label { display: block; font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  input, textarea {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+    font-family: inherit; font-size: 14px; color: var(--ink);
+  }
+  input:focus, textarea:focus { outline: 2px solid var(--teal); border-color: var(--teal); }
+  textarea { resize: vertical; min-height: 90px; }
+  .form-submit { width: 100%; margin-top: 6px; }
+
+  /* ---------- Nosotros ---------- */
+  #nosotros .grid-2 { align-items: center; }
+  #nosotros .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+  #nosotros .stats b { display: block; font-size: 28px; color: var(--orange); }
+  #nosotros .stats span { font-size: 13px; color: var(--muted); }
+
+  /* ---------- Blog placeholder ---------- */
+  #blog { text-align: center; }
+  #blog .soon {
+    display: inline-flex; align-items: center; gap: 10px; background: var(--gray);
+    color: var(--navy); font-weight: 700; padding: 12px 22px; border-radius: 999px; margin-top: 8px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--navy-deep); color: #cbd8e6; padding: 52px 0 28px; }
+  .footgrid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; margin-bottom: 36px; }
+  footer .brand img { height: 36px; filter: brightness(0) invert(1); }
+  footer h4 { color: #fff; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 16px; }
+  footer a { color: #cbd8e6; font-size: 14px; }
+  footer ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  footer .social { display: flex; gap: 12px; margin-top: 16px; }
+  footer .social a {
+    width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: center; font-size: 15px;
+  }
+  .footbottom {
+    border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; font-size: 12px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; color: #8fa2b8;
+  }
+
+  @media (max-width: 900px) {
+    nav.menu { display: none; }
+    .hero-inner { grid-template-columns: 1fr; }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .grid-2 { grid-template-columns: 1fr; }
+    .footgrid { grid-template-columns: 1fr; }
+    .formrow { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <a class="brand" href="#top">
+      <img src="assets/dasilva-logo.png" alt="Da Silva Consulting & Services">
+    </a>
+    <nav class="menu">
+      <a href="#servicios" data-i18n="nav_como">Cómo trabajamos</a>
+      <a href="#blog" data-i18n="nav_blog">Blog</a>
+      <a href="#nosotros" data-i18n="nav_nosotros">Nosotros</a>
+    </nav>
+    <div class="navactions">
+      <div class="lang-toggle es" id="langToggle" role="group" aria-label="Language / Idioma">
+        <span class="slider"></span>
+        <button class="lang-btn" data-lang="es" type="button">ES</button>
+        <button class="lang-btn" data-lang="en" type="button">EN</button>
+      </div>
+      <a class="btn btn-outline" href="https://apply.dasilvaconsultingservices.net/" target="_blank" rel="noopener" data-i18n="nav_btn_empleo">Encuentra empleo</a>
+      <a class="btn btn-primary" href="#solicita-propuesta" data-i18n="nav_btn_propuesta">Solicita propuesta</a>
+    </div>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <h1 data-i18n="hero_title">Conectamos <span>talento</span> con empresas en toda Florida y EE. UU.</h1>
+      <p class="lead" data-i18n="hero_lead">Más de 7 años ayudando a empresas a encontrar el personal correcto, y a profesionales a encontrar su próxima oportunidad — staffing temporal, colocación permanente y gestión integral de reclutamiento.</p>
+      <div class="ctas">
+        <a class="btn btn-primary btn-lg" href="https://apply.dasilvaconsultingservices.net/" target="_blank" rel="noopener" data-i18n="hero_btn_empleo">Encuentra empleo</a>
+        <a class="btn btn-outline btn-lg" style="color:#fff;border-color:#fff" href="#solicita-propuesta" data-i18n="hero_btn_propuesta">Solicita propuesta</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="stat"><span data-i18n="hero_stat1_label">Años de experiencia</span><b>7+</b></div>
+      <div class="stat"><span data-i18n="hero_stat2_label">Colocaciones exitosas</span><b>500+</b></div>
+      <div class="stat"><span data-i18n="hero_stat3_label">Con sede en</span><b>Doral, FL</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POR QUÉ ELEGIRNOS ================= -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="why_eyebrow">Por qué elegirnos</span>
+      <h2 data-i18n="why_title">La firma de staffing en la que empresas y candidatos confían</h2>
+    </div>
+    <div class="grid-4">
+      <div class="card">
+        <div class="icon navy">📍</div>
+        <h3 data-i18n="why1_title">Experiencia regional</h3>
+        <p data-i18n="why1_text">Conocimiento profundo del mercado laboral de Florida y EE. UU., con foco en sectores de ventas, administración e industria ligera.</p>
+      </div>
+      <div class="card">
+        <div class="icon orange">⚙️</div>
+        <h3 data-i18n="why2_title">Tecnología y proceso</h3>
+        <p data-i18n="why2_text">Screening, pruebas y verificación de referencias apoyados en herramientas modernas de reclutamiento.</p>
+      </div>
+      <div class="card">
+        <div class="icon teal">🤝</div>
+        <h3 data-i18n="why3_title">Proceso personalizado</h3>
+        <p data-i18n="why3_text">Sin contratos rígidos: entendemos tu necesidad puntual y actuamos rápido, como una extensión de tu equipo de RRHH.</p>
+      </div>
+      <div class="card">
+        <div class="icon navy">📈</div>
+        <h3 data-i18n="why4_title">Resultados comprobados</h3>
+        <p data-i18n="why4_text">Cientos de colocaciones exitosas, temporales y permanentes, con altos índices de retención.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICIOS (Cómo trabajamos) ================= -->
+<section class="alt" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" data-i18n="serv_eyebrow">Cómo trabajamos</span>
+      <h2 data-i18n="serv_title">Nuestros servicios</h2>
+      <p data-i18n="serv_lead">Adaptamos el modelo de staffing a lo que tu negocio necesita hoy.</p>
+    </div>
+    <div class="grid-4">
+      <div class="card">
+        <div class="icon orange">⏱️</div>
+        <h3 data-i18n="serv1_title">Staffing temporal</h3>
+        <p data-i18n="serv1_text">Personal disponible para temporadas altas, proyectos puntuales o cuando necesitas apoyo extra sin comprometerte a largo plazo.</p>
+      </div>
+      <div class="card">
+        <div class="icon navy">🎯</div>
+        <h3 data-i18n="serv2_title">Colocación permanente</h3>
+        <p data-i18n="serv2_text">Proceso riguroso de selección con testing, entrevistas y negociación para encontrar el candidato correcto desde el primer día.</p>
+      </div>
+      <div class="card">
+        <div class="icon teal">🗂️</div>
+        <h3 data-i18n="serv3_title">Gestión integral de reclutamiento</h3>
+        <p data-i18n="serv3_text">Reclutamiento, screening, procesamiento, payroll y onboarding — nos encargamos de todo el ciclo para tu personal temporal, temp-to-hire o permanente.</p>
+      </div>
+      <div class="card">
+        <div class="icon orange">✅</div>
+        <h3 data-i18n="serv4_title">Garantía de calidad</h3>
+        <p data-i18n="serv4_text">Asesoría en planeación de fuerza laboral, compensación, beneficios y planes de sucesión — con seguimiento cercano post-colocación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA BANNER ================= -->
+<section>
+  <div class="wrap">
+    <div class="cta-banner">
+      <h2 data-i18n="cta_title">¿Listo para encontrar tu próximo talento o tu próximo empleo?</h2>
+      <div class="ctas">
+        <a class="btn btn-primary btn-lg" href="https://apply.dasilvaconsultingservices.net/" target="_blank" rel="noopener" data-i18n="cta_btn_empleo">Encuentra empleo</a>
+        <a class="btn btn-outline btn-lg" style="color:#fff;border-color:#fff" href="#solicita-propuesta" data-i18n="cta_btn_propuesta">Solicita propuesta</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOLICITA PROPUESTA (Web-to-Lead) ================= -->
+<section id="solicita-propuesta">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow" style="color:var(--teal)" data-i18n="wtl_eyebrow">Solicita propuesta</span>
+      <h2 data-i18n="wtl_title">Cuéntanos qué personal necesitas</h2>
+      <p data-i18n="wtl_lead">Completa el formulario y un consultor de Da Silva te contactará en menos de 24 horas.</p>
+    </div>
+    <div class="box">
+      <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+        <input type="hidden" name="oid" value="00Da500001XYODr">
+        <input type="hidden" name="retURL" value="https://dasilvaconsultingservices.net/#gracias">
+        <input type="hidden" name="00Na500001oUa3y" value="Account Lead">
+        <div class="formrow">
+          <div>
+            <label data-i18n="wtl_first_name">Nombre</label>
+            <input type="text" name="first_name" required>
+          </div>
+          <div>
+            <label data-i18n="wtl_last_name">Apellido</label>
+            <input type="text" name="last_name" required>
+          </div>
+        </div>
+        <div class="formrow">
+          <div>
+            <label data-i18n="wtl_company">Empresa</label>
+            <input type="text" name="company" required>
+          </div>
+          <div>
+            <label data-i18n="wtl_phone">Teléfono</label>
+            <input type="tel" name="phone">
+          </div>
+        </div>
+        <div class="formrow full">
+          <div>
+            <label data-i18n="wtl_email">Email</label>
+            <input type="email" name="email" required>
+          </div>
+        </div>
+        <div class="formrow full">
+          <div>
+            <label data-i18n="wtl_description">¿Qué personal necesitas?</label>
+            <textarea name="description" placeholder="Ej. 5 operarios de bodega, turno nocturno, inicio inmediato"></textarea>
+          </div>
+        </div>
+        <button class="btn btn-primary form-submit" type="submit" data-i18n="wtl_submit">Enviar solicitud</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NOSOTROS ================= -->
+<section class="alt" id="nosotros">
+  <div class="wrap">
+    <div class="grid-2">
+      <div>
+        <span class="eyebrow" data-i18n="about_eyebrow">Nosotros</span>
+        <h2 style="font-size:28px;margin-bottom:16px" data-i18n="about_title">Una firma de consultoría y staffing con raíces en Doral, FL</h2>
+        <p data-i18n="about_p1">Da Silva Consulting &amp; Services lleva más de 7 años en la industria de staffing y consultoría, conectando empresas de los sectores de ventas, administrativo, industria ligera y management con el talento que necesitan para crecer.</p>
+        <br>
+        <p data-i18n="about_p2">Nuestro equipo bilingüe entiende tanto la realidad del mercado laboral de Florida como las necesidades específicas de cada negocio — por eso no manejamos contratos rígidos: simplemente nos dices qué necesitas, y nos ponemos a trabajar de inmediato.</p>
+        <div class="stats">
+          <div><b>7+</b><span data-i18n="about_stat1">Años en el mercado</span></div>
+          <div><b>500+</b><span data-i18n="about_stat2">Colocaciones</span></div>
+          <div><b>100%</b><span data-i18n="about_stat3">Bilingüe</span></div>
+        </div>
+      </div>
+      <div>
+        <img src="assets/corner-decoration.png" alt="Da Silva" style="max-width:280px;margin:0 auto;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOG (placeholder) ================= -->
+<section id="blog">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="blog_eyebrow">Blog</span>
+    <h2 data-i18n="blog_title">Recursos para empresas y candidatos</h2>
+    <div class="soon">📝 <span data-i18n="blog_soon">Próximamente</span></div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footgrid">
+      <div>
+        <a class="brand" href="#top"><img src="assets/dasilva-logo.png" alt="Da Silva Consulting & Services"></a>
+        <p style="margin-top:16px;max-width:320px" data-i18n="foot_tagline">Reclutamiento y staffing en Florida y Estados Unidos. Conectamos empresas con el talento correcto.</p>
+        <div class="social">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+      <div>
+        <h4 data-i18n="foot_nav">Navegación</h4>
+        <ul>
+          <li><a href="#servicios" data-i18n="nav_como">Cómo trabajamos</a></li>
+          <li><a href="#blog" data-i18n="nav_blog">Blog</a></li>
+          <li><a href="#nosotros" data-i18n="nav_nosotros">Nosotros</a></li>
+          <li><a href="https://apply.dasilvaconsultingservices.net/" target="_blank" rel="noopener" data-i18n="nav_btn_empleo">Encuentra empleo</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="foot_contact">Contacto</h4>
+        <ul>
+          <li>10775 NW 50th St, Doral, FL 33178</li>
+          <li>+1 (786) 252-6042</li>
+          <li>info@dasilvaconsultingservices.net</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footbottom">
+      <span>© 2026 Da Silva Consulting &amp; Services. <span data-i18n="foot_rights">Todos los derechos reservados.</span></span>
+      <span data-i18n="foot_powered">Powered by Aurora Digital®</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var dict = {
+    es: {
+      page_title: "Da Silva Consulting & Services — Reclutamiento y Staffing en Florida",
+      nav_como: "Cómo trabajamos", nav_blog: "Blog", nav_nosotros: "Nosotros",
+      nav_btn_empleo: "Encuentra empleo", nav_btn_propuesta: "Solicita propuesta",
+      hero_title: 'Conectamos <span>talento</span> con empresas en toda Florida y EE. UU.',
+      hero_lead: "Más de 7 años ayudando a empresas a encontrar el personal correcto, y a profesionales a encontrar su próxima oportunidad — staffing temporal, colocación permanente y gestión integral de reclutamiento.",
+      hero_btn_empleo: "Encuentra empleo", hero_btn_propuesta: "Solicita propuesta",
+      hero_stat1_label: "Años de experiencia", hero_stat2_label: "Colocaciones exitosas", hero_stat3_label: "Con sede en",
+      why_eyebrow: "Por qué elegirnos", why_title: "La firma de staffing en la que empresas y candidatos confían",
+      why1_title: "Experiencia regional", why1_text: "Conocimiento profundo del mercado laboral de Florida y EE. UU., con foco en sectores de ventas, administración e industria ligera.",
+      why2_title: "Tecnología y proceso", why2_text: "Screening, pruebas y verificación de referencias apoyados en herramientas modernas de reclutamiento.",
+      why3_title: "Proceso personalizado", why3_text: "Sin contratos rígidos: entendemos tu necesidad puntual y actuamos rápido, como una extensión de tu equipo de RRHH.",
+      why4_title: "Resultados comprobados", why4_text: "Cientos de colocaciones exitosas, temporales y permanentes, con altos índices de retención.",
+      serv_eyebrow: "Cómo trabajamos", serv_title: "Nuestros servicios", serv_lead: "Adaptamos el modelo de staffing a lo que tu negocio necesita hoy.",
+      serv1_title: "Staffing temporal", serv1_text: "Personal disponible para temporadas altas, proyectos puntuales o cuando necesitas apoyo extra sin comprometerte a largo plazo.",
+      serv2_title: "Colocación permanente", serv2_text: "Proceso riguroso de selección con testing, entrevistas y negociación para encontrar el candidato correcto desde el primer día.",
+      serv3_title: "Gestión integral de reclutamiento", serv3_text: "Reclutamiento, screening, procesamiento, payroll y onboarding — nos encargamos de todo el ciclo para tu personal temporal, temp-to-hire o permanente.",
+      serv4_title: "Garantía de calidad", serv4_text: "Asesoría en planeación de fuerza laboral, compensación, beneficios y planes de sucesión — con seguimiento cercano post-colocación.",
+      cta_title: "¿Listo para encontrar tu próximo talento o tu próximo empleo?", cta_btn_empleo: "Encuentra empleo", cta_btn_propuesta: "Solicita propuesta",
+      wtl_eyebrow: "Solicita propuesta", wtl_title: "Cuéntanos qué personal necesitas", wtl_lead: "Completa el formulario y un consultor de Da Silva te contactará en menos de 24 horas.",
+      wtl_first_name: "Nombre", wtl_last_name: "Apellido", wtl_company: "Empresa", wtl_phone: "Teléfono", wtl_email: "Email", wtl_description: "¿Qué personal necesitas?", wtl_submit: "Enviar solicitud",
+      about_eyebrow: "Nosotros", about_title: "Una firma de consultoría y staffing con raíces en Doral, FL",
+      about_p1: "Da Silva Consulting & Services lleva más de 7 años en la industria de staffing y consultoría, conectando empresas de los sectores de ventas, administrativo, industria ligera y management con el talento que necesitan para crecer.",
+      about_p2: "Nuestro equipo bilingüe entiende tanto la realidad del mercado laboral de Florida como las necesidades específicas de cada negocio — por eso no manejamos contratos rígidos: simplemente nos dices qué necesitas, y nos ponemos a trabajar de inmediato.",
+      about_stat1: "Años en el mercado", about_stat2: "Colocaciones", about_stat3: "Bilingüe",
+      blog_eyebrow: "Blog", blog_title: "Recursos para empresas y candidatos", blog_soon: "Próximamente",
+      foot_tagline: "Reclutamiento y staffing en Florida y Estados Unidos. Conectamos empresas con el talento correcto.",
+      foot_nav: "Navegación", foot_contact: "Contacto", foot_rights: "Todos los derechos reservados.", foot_powered: "Powered by Aurora Digital®"
+    },
+    en: {
+      page_title: "Da Silva Consulting & Services — Staffing & Recruitment in Florida",
+      nav_como: "How We Work", nav_blog: "Blog", nav_nosotros: "About Us",
+      nav_btn_empleo: "Find a Job", nav_btn_propuesta: "Request a Proposal",
+      hero_title: 'Connecting <span>talent</span> with companies across Florida and the U.S.',
+      hero_lead: "For over 7 years we've helped companies find the right people, and professionals find their next opportunity — temporary staffing, permanent placement, and full recruitment management.",
+      hero_btn_empleo: "Find a Job", hero_btn_propuesta: "Request a Proposal",
+      hero_stat1_label: "Years of experience", hero_stat2_label: "Successful placements", hero_stat3_label: "Based in",
+      why_eyebrow: "Why choose us", why_title: "The staffing firm companies and candidates trust",
+      why1_title: "Regional expertise", why1_text: "Deep knowledge of the Florida and U.S. labor market, with focus on sales, administrative, and light industrial sectors.",
+      why2_title: "Technology & process", why2_text: "Screening, testing, and reference checks backed by modern recruiting tools.",
+      why3_title: "Personalized process", why3_text: "No rigid contracts: we understand your specific need and act fast, like an extension of your HR team.",
+      why4_title: "Proven results", why4_text: "Hundreds of successful temporary and permanent placements, with high retention rates.",
+      serv_eyebrow: "How we work", serv_title: "Our services", serv_lead: "We adapt the staffing model to what your business needs today.",
+      serv1_title: "Temporary staffing", serv1_text: "Available staff for peak seasons, special projects, or when you need extra support without a long-term commitment.",
+      serv2_title: "Permanent placement", serv2_text: "A rigorous selection process with testing, interviews, and negotiation to find the right candidate from day one.",
+      serv3_title: "Full recruitment management", serv3_text: "Recruiting, screening, processing, payroll, and onboarding — we handle the entire cycle for your temporary, temp-to-hire, or permanent staff.",
+      serv4_title: "Quality guarantee", serv4_text: "Advisory on workforce planning, compensation, benefits, and succession planning — with close follow-up after placement.",
+      cta_title: "Ready to find your next hire or your next job?", cta_btn_empleo: "Find a Job", cta_btn_propuesta: "Request a Proposal",
+      wtl_eyebrow: "Request a proposal", wtl_title: "Tell us what staff you need", wtl_lead: "Fill out the form and a Da Silva consultant will contact you within 24 hours.",
+      wtl_first_name: "First Name", wtl_last_name: "Last Name", wtl_company: "Company", wtl_phone: "Phone", wtl_email: "Email", wtl_description: "What staff do you need?", wtl_submit: "Send request",
+      about_eyebrow: "About us", about_title: "A consulting and staffing firm rooted in Doral, FL",
+      about_p1: "Da Silva Consulting & Services has been in the staffing and consulting industry for over 7 years, connecting companies in sales, administrative, light industrial, and management sectors with the talent they need to grow.",
+      about_p2: "Our bilingual team understands both the reality of Florida's labor market and the specific needs of each business — that's why we don't do rigid contracts: just tell us what you need, and we get to work right away.",
+      about_stat1: "Years in the market", about_stat2: "Placements", about_stat3: "Bilingual",
+      blog_eyebrow: "Blog", blog_title: "Resources for companies and candidates", blog_soon: "Coming soon",
+      foot_tagline: "Staffing and recruitment in Florida and the United States. Connecting companies with the right talent.",
+      foot_nav: "Navigation", foot_contact: "Contact", foot_rights: "All rights reserved.", foot_powered: "Powered by Aurora Digital®"
+    }
+  };
+
+  function applyLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var key = el.getAttribute('data-i18n');
+      var val = dict[lang][key];
+      if (val === undefined) return;
+      if (val.indexOf('<span>') !== -1 || val.indexOf('</span>') !== -1) {
+        el.innerHTML = val;
+      } else {
+        el.textContent = val;
+      }
+    });
+    document.getElementById('langToggle').className = 'lang-toggle ' + lang;
+    localStorage.setItem('dsLang', lang);
+  }
+
+  document.getElementById('langToggle').addEventListener('click', function(e) {
+    var btn = e.target.closest('.lang-btn');
+    if (!btn) return;
+    applyLang(btn.getAttribute('data-lang'));
+  });
+
+  applyLang(localStorage.getItem('dsLang') || 'es');
+})();
+</script>
+
+</body>
+</html>
