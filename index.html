@@ -376,40 +376,45 @@
       <p data-i18n="wtl_lead">Completa el formulario y un consultor de Da Silva te contactará en menos de 24 horas.</p>
     </div>
     <div class="box reveal">
-      <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+      <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Da500001XYODr" method="POST">
         <input type="hidden" name="oid" value="00Da500001XYODr">
-        <input type="hidden" name="retURL" value="https://dasilvaconsultingservices.net/#gracias">
+        <input type="hidden" name="retURL" value="http://dasilvaconsultingservices.net">
+        <input type="hidden" name="lead_source" value="Web">
         <input type="hidden" name="00Na500001oUa3y" value="Account Lead">
         <div class="formrow">
           <div>
             <label data-i18n="wtl_first_name">Nombre</label>
-            <input type="text" name="first_name" required>
+            <input type="text" id="first_name" maxlength="40" name="first_name" required>
           </div>
           <div>
             <label data-i18n="wtl_last_name">Apellido</label>
-            <input type="text" name="last_name" required>
+            <input type="text" id="last_name" maxlength="80" name="last_name" required>
           </div>
         </div>
         <div class="formrow">
           <div>
             <label data-i18n="wtl_company">Empresa</label>
-            <input type="text" name="company" required>
+            <input type="text" id="company" maxlength="40" name="company" required>
           </div>
           <div>
-            <label data-i18n="wtl_phone">Teléfono</label>
-            <input type="tel" name="phone">
+            <label data-i18n="wtl_city">Ciudad</label>
+            <input type="text" id="city" maxlength="40" name="city">
           </div>
         </div>
-        <div class="formrow full">
+        <div class="formrow">
+          <div>
+            <label data-i18n="wtl_phone">Teléfono</label>
+            <input type="tel" id="phone" maxlength="40" name="phone">
+          </div>
           <div>
             <label data-i18n="wtl_email">Email</label>
-            <input type="email" name="email" required>
+            <input type="email" id="email" maxlength="80" name="email" required>
           </div>
         </div>
         <div class="formrow full">
           <div>
             <label data-i18n="wtl_description">¿Qué personal necesitas?</label>
-            <textarea name="description" placeholder="Ej. 5 operarios de bodega, turno nocturno, inicio inmediato"></textarea>
+            <textarea id="description" name="description" placeholder="Ej. 5 operarios de bodega, turno nocturno, inicio inmediato"></textarea>
           </div>
         </div>
         <button class="btn btn-primary form-submit" type="submit" data-i18n="wtl_submit">Enviar solicitud</button>
@@ -501,7 +506,7 @@
       break_eyebrow: "Industria ligera & logística", break_quote: "Desde bodegas y centros de distribución hasta oficinas corporativas — encontramos el personal correcto para cada operación.",
       cta_title: "¿Listo para encontrar tu próximo talento o tu próximo empleo?", cta_btn_empleo: "Encuentra empleo", cta_btn_propuesta: "Solicita propuesta",
       wtl_eyebrow: "Solicita propuesta", wtl_title: "Cuéntanos qué personal necesitas", wtl_lead: "Completa el formulario y un consultor de Da Silva te contactará en menos de 24 horas.",
-      wtl_first_name: "Nombre", wtl_last_name: "Apellido", wtl_company: "Empresa", wtl_phone: "Teléfono", wtl_email: "Email", wtl_description: "¿Qué personal necesitas?", wtl_submit: "Enviar solicitud",
+      wtl_first_name: "Nombre", wtl_last_name: "Apellido", wtl_company: "Empresa", wtl_city: "Ciudad", wtl_phone: "Teléfono", wtl_email: "Email", wtl_description: "¿Qué personal necesitas?", wtl_submit: "Enviar solicitud",
       about_eyebrow: "Nosotros", about_title: "Una firma de consultoría y staffing con raíces en Doral, FL",
       about_p1: "Da Silva Consulting & Services lleva más de 7 años en la industria de staffing y consultoría, conectando empresas de los sectores de ventas, administrativo, industria ligera y management con el talento que necesitan para crecer.",
       about_p2: "Nuestro equipo bilingüe entiende tanto la realidad del mercado laboral de Florida como las necesidades específicas de cada negocio — por eso no manejamos contratos rígidos: simplemente nos dices qué necesitas, y nos ponemos a trabajar de inmediato.",
@@ -531,7 +536,7 @@
       break_eyebrow: "Light industrial & logistics", break_quote: "From warehouses and distribution centers to corporate offices — we find the right people for every operation.",
       cta_title: "Ready to find your next hire or your next job?", cta_btn_empleo: "Find a Job", cta_btn_propuesta: "Request a Proposal",
       wtl_eyebrow: "Request a proposal", wtl_title: "Tell us what staff you need", wtl_lead: "Fill out the form and a Da Silva consultant will contact you within 24 hours.",
-      wtl_first_name: "First Name", wtl_last_name: "Last Name", wtl_company: "Company", wtl_phone: "Phone", wtl_email: "Email", wtl_description: "What staff do you need?", wtl_submit: "Send request",
+      wtl_first_name: "First Name", wtl_last_name: "Last Name", wtl_company: "Company", wtl_city: "City", wtl_phone: "Phone", wtl_email: "Email", wtl_description: "What staff do you need?", wtl_submit: "Send request",
       about_eyebrow: "About us", about_title: "A consulting and staffing firm rooted in Doral, FL",
       about_p1: "Da Silva Consulting & Services has been in the staffing and consulting industry for over 7 years, connecting companies in sales, administrative, light industrial, and management sectors with the talent they need to grow.",
       about_p2: "Our bilingual team understands both the reality of Florida's labor market and the specific needs of each business — that's why we don't do rigid contracts: just tell us what you need, and we get to work right away.",
