@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gracias — Da Silva Consulting &amp; Services</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #022648;
+    --navy-deep: #011a33;
+    --orange: #FF842C;
+    --orange-deep: #e06f1c;
+    --teal: #33AAB9;
+    --cream: #F5F4EC;
+    --ink: #1a202c;
+    --muted: #5b6472;
+    --shadow-lg: 0 30px 60px -20px rgba(2,38,72,0.35);
+    --radius: 16px;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    padding: 24px;
+  }
+  .card {
+    max-width: 480px;
+    width: 100%;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .card img { height: 48px; margin: 0 auto 28px; display: block; }
+  .icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background: rgba(51,170,185,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon svg { width: 32px; height: 32px; color: var(--teal); }
+  h1 { font-size: 24px; font-weight: 800; color: var(--navy); margin: 0 0 12px; letter-spacing: -0.01em; }
+  p { font-size: 15px; line-height: 1.6; color: var(--muted); margin: 0 0 28px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px 28px; border-radius: 999px; font-weight: 700; font-size: 14px;
+    background: var(--orange); color: #fff; text-decoration: none;
+    box-shadow: 0 1px 2px rgba(2,38,72,0.06), 0 1px 3px rgba(2,38,72,0.08);
+    transition: transform .15s, background .2s;
+  }
+  .btn:hover { transform: translateY(-2px); background: var(--orange-deep); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <img src="assets/dasilva-logo-transparent.png" alt="Da Silva Consulting & Services">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"></polyline>
+      </svg>
+    </div>
+    <h1>¡Gracias por tu solicitud!</h1>
+    <p>Recibimos tu información correctamente. Un consultor de Da Silva Consulting &amp; Services se pondrá en contacto contigo en menos de 24 horas.</p>
+    <a class="btn" href="https://www.dasilvaconsultingservices.net/">Volver al inicio</a>
+  </div>
+</body>
+</html>
